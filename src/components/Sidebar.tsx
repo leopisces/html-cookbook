@@ -7,9 +7,11 @@ interface SidebarProps {
   data: ContentData;
   theme: "light" | "dark";
   toggleTheme: () => void;
+  sidebarOpen: boolean;
+  onToggleSidebar: () => void;
 }
 
-export default function Sidebar({ data, theme, toggleTheme }: SidebarProps) {
+export default function Sidebar({ data, theme, toggleTheme, sidebarOpen, onToggleSidebar }: SidebarProps) {
   const { chapterId, sectionId } = useParams<{
     chapterId: string;
     sectionId: string;
@@ -17,7 +19,6 @@ export default function Sidebar({ data, theme, toggleTheme }: SidebarProps) {
   const [expandedChapters, setExpandedChapters] = useState<Set<string>>(
     () => new Set(chapterId ? [chapterId] : [])
   );
-  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleChapter = (id: string) => {
     setExpandedChapters((prev) => {
@@ -35,7 +36,7 @@ export default function Sidebar({ data, theme, toggleTheme }: SidebarProps) {
     <>
       {/* Mobile toggle */}
       <button
-        onClick={() => setSidebarOpen(!sidebarOpen)}
+        onClick={onToggleSidebar}
         className="lg:hidden fixed top-4 left-4 z-50 p-2.5 bg-surface-700 dark:bg-surface-700
                    text-white rounded-xl shadow-lg active:scale-95
                    transition-all duration-150 ease-out"
@@ -46,12 +47,13 @@ export default function Sidebar({ data, theme, toggleTheme }: SidebarProps) {
       {/* Sidebar */}
       <aside
         className={`
-          fixed lg:static inset-y-0 left-0 z-40 w-72
+          fixed lg:static inset-y-0 left-0 z-40
+          ${sidebarOpen ? 'w-72' : 'w-72 lg:w-0 lg:min-w-0'}
           bg-surface-50 dark:bg-surface-950 text-surface-800 dark:text-surface-100
-          border-r border-surface-200 dark:border-surface-800
-          transform transition-transform duration-200 ease-out
-          ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
-          overflow-y-auto
+          ${sidebarOpen ? 'border-r border-surface-200 dark:border-surface-800' : 'border-r border-surface-200 dark:border-surface-800 lg:border-r-0'}
+          transform transition-all duration-200 ease-out
+          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+          ${sidebarOpen ? 'overflow-y-auto' : 'overflow-y-auto lg:overflow-hidden'}
         `}
       >
         {/* Header */}
@@ -125,7 +127,9 @@ export default function Sidebar({ data, theme, toggleTheme }: SidebarProps) {
                         <Link
                           key={section.id}
                           to={`/learn/${chapter.id}/${section.id}`}
-                          onClick={() => setSidebarOpen(false)}
+                          onClick={() => {
+                            if (window.innerWidth < 1024) onToggleSidebar();
+                          }}
                           className={`
                             block px-3 py-1.5 rounded-md text-[13px] transition-all duration-150 ease-out
                             ${isActive

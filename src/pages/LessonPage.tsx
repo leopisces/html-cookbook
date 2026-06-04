@@ -1,4 +1,4 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, useOutletContext } from "react-router-dom";
 import CodeRunner from "../components/CodeRunner";
 import type { ContentData } from "../types/content";
 import { findSection } from "../hooks/useContent";
@@ -7,7 +7,13 @@ interface LessonPageProps {
   data: ContentData;
 }
 
+interface OutletContext {
+  sidebarOpen: boolean;
+  onToggleSidebar: () => void;
+}
+
 export default function LessonPage({ data }: LessonPageProps) {
+  const { sidebarOpen, onToggleSidebar } = useOutletContext<OutletContext>();
   const { chapterId, sectionId } = useParams<{
     chapterId: string;
     sectionId: string;
@@ -33,5 +39,5 @@ export default function LessonPage({ data }: LessonPageProps) {
     );
   }
 
-  return <CodeRunner section={result.section} />;
+  return <CodeRunner section={result.section} sidebarOpen={sidebarOpen} onToggleSidebar={onToggleSidebar} />;
 }

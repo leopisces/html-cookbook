@@ -6,9 +6,11 @@ import type { Section } from "../types/content";
 
 interface CodeRunnerProps {
   section: Section;
+  sidebarOpen: boolean;
+  onToggleSidebar: () => void;
 }
 
-export default function CodeRunner({ section }: CodeRunnerProps) {
+export default function CodeRunner({ section, sidebarOpen, onToggleSidebar }: CodeRunnerProps) {
   const [code, setCode] = useState(section.code);
   const preview = useHtmlPreview();
   const [infoOpen, setInfoOpen] = useState(false);
@@ -135,6 +137,17 @@ export default function CodeRunner({ section }: CodeRunnerProps) {
                         border-b border-surface-200/80 dark:border-surface-800/60
                         transition-colors duration-200 ease-out">
           <div className="flex items-center gap-2 relative">
+            <button
+              onClick={onToggleSidebar}
+              className="hidden lg:inline-flex p-1.5 rounded-lg text-surface-400 dark:text-surface-500
+                         hover:bg-surface-200 dark:hover:bg-surface-800/80 hover:text-surface-600 dark:hover:text-surface-300
+                         transition-all duration-150 ease-out items-center justify-center"
+              aria-label={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sidebarOpen ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"} />
+              </svg>
+            </button>
             <span className="text-xs text-surface-500 dark:text-surface-500 font-mono tracking-wide">
               {section.chapterId}/{section.id}.html
             </span>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Outlet, useParams, Navigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import type { ContentData } from "../types/content";
@@ -13,6 +14,7 @@ export default function Layout({ data, theme, toggleTheme }: LayoutProps) {
     chapterId: string;
     sectionId: string;
   }>();
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   if (!chapterId || !sectionId) {
     const firstChapter = data.chapters[0];
@@ -25,9 +27,15 @@ export default function Layout({ data, theme, toggleTheme }: LayoutProps) {
 
   return (
     <div className="flex h-screen bg-surface-50 dark:bg-surface-950 transition-colors duration-200 ease-out">
-      <Sidebar data={data} theme={theme} toggleTheme={toggleTheme} />
-      <main className="flex-1 overflow-hidden flex flex-col bg-white dark:bg-surface-900 shadow-xs transition-colors duration-200 ease-out">
-        <Outlet />
+      <Sidebar
+        data={data}
+        theme={theme}
+        toggleTheme={toggleTheme}
+        sidebarOpen={sidebarOpen}
+        onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+      />
+      <main className="flex-1 overflow-hidden flex flex-col bg-white dark:bg-surface-900 shadow-xs transition-all duration-200 ease-out">
+        <Outlet context={{ sidebarOpen, onToggleSidebar: () => setSidebarOpen(!sidebarOpen) }} />
       </main>
     </div>
   );
