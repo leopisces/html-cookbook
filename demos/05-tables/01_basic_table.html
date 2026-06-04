@@ -1,0 +1,54 @@
+<!--
+  title: HTML 表格
+  description: 表格结构、合并单元格、表格样式
+  goals: table/tr/td/th; 合并单元格rowspan/colspan; 表格样式
+  tags: table, colspan
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML 表格</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #cbd5e1; padding: 0.5rem; text-align: left; }
+    th { background: #059669; color: white; }
+    tr:nth-child(even) { background: #f1f5f9; }
+  </style>
+</head>
+<body>
+  <h1>HTML 表格</h1>
+  <h2>基本表格</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>城市</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>张三</td><td>25</td><td>北京</td></tr>
+      <tr><td>李四</td><td>30</td><td>上海</td></tr>
+      <tr><td>王五</td><td>28</td><td>广州</td></tr>
+    </tbody>
+  </table>
+  <h2>合并单元格</h2>
+  <table>
+    <tr>
+      <th colspan="2">合并两列</th>
+      <th>第三列</th>
+    </tr>
+    <tr>
+      <td rowspan="2">合并两行</td>
+      <td>数据1</td>
+      <td>数据2</td>
+    </tr>
+    <tr>
+      <td>数据3</td>
+      <td>数据4</td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!--
+  title: Grid 基础
+  description: 网格布局：行列定义、区域、间距
+  goals: grid-template-columns/rows; grid-gap; grid-area
+  tags: grid, layout
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid 基础</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; padding: 1rem; }
+    .grid-demo { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .grid-demo .cell { background: #059669; color: white; padding: 0.5rem; border-radius: 4px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Grid 基础</h1>
+  <h2>三列网格</h2>
+  <div class="grid-demo">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+    <div class="cell">5</div>
+    <div class="cell">6</div>
+  </div>
+  <p><code>grid-template-columns: 1fr 1fr 1fr</code> — 三等分列</p>
+  <h2>不等分列</h2>
+  <div class="grid-demo" style="grid-template-columns: 2fr 1fr 1fr;">
+    <div class="cell">宽</div>
+    <div class="cell">中</div>
+    <div class="cell">窄</div>
+    <div class="cell">宽</div>
+    <div class="cell">中</div>
+    <div class="cell">窄</div>
+  </div>
+  <p><code>grid-template-columns: 2fr 1fr 1fr</code> — 第一列更宽</p>
+</body>
+</html>

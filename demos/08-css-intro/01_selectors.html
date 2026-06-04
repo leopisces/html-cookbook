@@ -1,0 +1,39 @@
+<!--
+  title: CSS 选择器与盒模型
+  description: CSS基础：选择器、属性、盒模型
+  goals: 元素/类/ID选择器; 盒模型margin/border/padding; 常用CSS属性
+  tags: css, selectors
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 选择器与盒模型</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    /* 元素选择器 */
+    h2 { color: #059669; }
+    /* 类选择器 */
+    .card { background: #f1f5f9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 2px solid #a7f3d0; }
+    /* ID选择器 */
+    #special { background: #d1fae5; padding: 1rem; border: 3px solid #059669; }
+    /* 盒模型演示 */
+    .box-demo { background: #e2e8f0; border: 4px solid #059669; padding: 1rem; margin: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>CSS 选择器与盒模型</h1>
+  <h2>选择器类型</h2>
+  <div class="card">
+    <p>这是使用 <code>.card</code> 类选择器的元素。</p>
+  </div>
+  <div id="special">
+    <p>这是使用 <code>#special</code> ID 选择器的元素。</p>
+  </div>
+  <h2>盒模型</h2>
+  <div class="box-demo">
+    <p>margin → border → padding → content</p>
+    <p>外层 margin（透明）, border（绿色边框）, padding（浅灰背景）, content（内容区域）</p>
+  </div>
+</body>
+</html>

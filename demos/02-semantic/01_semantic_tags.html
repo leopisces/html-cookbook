@@ -1,0 +1,47 @@
+<!--
+  title: HTML5 语义化标签
+  description: 使用语义化标签提升页面可访问性和SEO
+  goals: header/nav/main/article/section/footer; 语义化的意义; 与div对比
+  tags: semantic, accessibility
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 语义化标签</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 0 auto; }
+    header { background: #059669; color: white; padding: 1rem; }
+    nav { background: #064e3b; padding: 0.5rem 1rem; }
+    nav a { color: #a7f3d0; margin-right: 1rem; }
+    main { padding: 1rem; }
+    article { border: 1px solid #e2e8f0; padding: 1rem; margin-bottom: 1rem; }
+    section { margin-bottom: 1rem; }
+    footer { background: #0f172a; color: #94a3b8; padding: 1rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML Cookbook</h1>
+    <p>交互式学习平台</p>
+  </header>
+  <nav>
+    <a href="#">首页</a>
+    <a href="#">基础</a>
+    <a href="#">语义化</a>
+  </nav>
+  <main>
+    <article>
+      <h2>什么是语义化？</h2>
+      <p>语义化标签让浏览器和搜索引擎更好地理解页面结构。</p>
+    </article>
+    <section>
+      <h3>对比 div 与语义标签</h3>
+      <p><code>&lt;div&gt;</code> 没有语义，<code>&lt;article&gt;</code> 表示独立内容块。</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; HTML Cookbook 2026</p>
+  </footer>
+</body>
+</html>

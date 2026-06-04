@@ -1,0 +1,34 @@
+<!--
+  title: HTML 超链接与导航
+  description: 超链接、锚点、导航菜单
+  goals: a标签与href属性; 锚点链接; target属性; 邮件链接
+  tags: links, anchor
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML 超链接与导航</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    nav { background: #059669; padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+    nav a { color: white; margin-right: 1rem; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1 id="top">HTML 超链接与导航</h1>
+  <nav>
+    <a href="#section1">第一节</a>
+    <a href="#section2">第二节</a>
+    <a href="#top">回到顶部</a>
+  </nav>
+  <h2 id="section1">基本链接</h2>
+  <p><a href="https://example.com" target="_blank">外部链接（新窗口打开）</a></p>
+  <p><a href="#section2">页面内锚点链接</a></p>
+  <p><a href="mailto:test@example.com">邮件链接</a></p>
+  <h2 id="section2">导航菜单</h2>
+  <p>导航使用 <code>&lt;nav&gt;</code> 标签包裹链接列表。</p>
+  <p><a href="#top">↑ 回到顶部</a></p>
+</body>
+</html>

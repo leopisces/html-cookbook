@@ -1,0 +1,39 @@
+<!--
+  title: 响应式设计
+  description: 媒体查询、视口单位、移动优先
+  goals: @media媒体查询; viewport单位vw/vh; 移动优先设计
+  tags: responsive, media-query
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>响应式设计</title>
+  <style>
+    body { font-family: sans-serif; margin: 1rem; }
+    .container { padding: 1rem; background: #f1f5f9; border-radius: 8px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .card { background: white; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 6px; }
+    /* 平板 */
+    @media (min-width: 600px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    /* 桌面 */
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>响应式设计</h1>
+  <div class="container">
+    <p>调整浏览器窗口大小查看变化：</p>
+    <div class="grid">
+      <div class="card"><h3>卡片1</h3><p>窄屏：单列</p></div>
+      <div class="card"><h3>卡片2</h3><p>中屏：两列</p></div>
+      <div class="card"><h3>卡片3</h3><p>宽屏：三列</p></div>
+    </div>
+  </div>
+  <p>移动优先：先写小屏样式，再用 <code>@media</code> 扩展到大屏。</p>
+</body>
+</html>

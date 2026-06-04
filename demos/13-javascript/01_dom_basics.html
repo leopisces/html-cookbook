@@ -1,0 +1,38 @@
+<!--
+  title: JavaScript DOM 操作
+  description: DOM基础操作：选取元素、修改内容、添加事件
+  goals: getElementById/querySelector; 修改textContent/style; addEventListener
+  tags: javascript, dom
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript DOM 操作</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    .btn { background: #059669; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; margin-right: 0.5rem; }
+    #output { background: #f1f5f9; padding: 1rem; border-radius: 6px; margin-top: 1rem; min-height: 60px; }
+  </style>
+</head>
+<body>
+  <h1>JavaScript DOM 操作</h1>
+  <button class="btn" onclick="changeText()">修改文字</button>
+  <button class="btn" onclick="changeColor()">修改颜色</button>
+  <button class="btn" onclick="addItem()">添加元素</button>
+  <div id="output">点击按钮查看效果</div>
+  <script>
+    function changeText() {
+      document.getElementById('output').textContent = '文字已修改！';
+    }
+    function changeColor() {
+      document.getElementById('output').style.background = '#d1fae5';
+    }
+    function addItem() {
+      const p = document.createElement('p');
+      p.textContent = '新增的段落';
+      document.getElementById('output').appendChild(p);
+    }
+  </script>
+</body>
+</html>

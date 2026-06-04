@@ -1,0 +1,30 @@
+<!--
+  title: CSS 过渡与动画
+  description: transition过渡、@keyframes关键帧动画、transform变换
+  goals: transition属性; @keyframes动画; transform变换
+  tags: animation, transition
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 过渡与动画</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    .hover-box { background: #059669; color: white; padding: 1rem; border-radius: 6px;
+                transition: all 0.3s ease; cursor: pointer; }
+    .hover-box:hover { transform: scale(1.05); background: #047857; box-shadow: 0 4px 12px rgba(5,150,105,0.3); }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    .animated { animation: pulse 2s infinite; background: #d1fae5; padding: 1rem; border-radius: 6px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>CSS 过渡与动画</h1>
+  <h2>过渡 (transition)</h2>
+  <div class="hover-box">鼠标悬停试试 → 缓慢放大变色</div>
+  <p><code>transition: all 0.3s ease</code> — 属性变化平滑过渡</p>
+  <h2>关键帧动画 (@keyframes)</h2>
+  <div class="animated">持续脉动效果</div>
+  <p><code>@keyframes pulse</code> + <code>animation: pulse 2s infinite</code></p>
+</body>
+</html>

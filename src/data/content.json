@@ -1,0 +1,249 @@
+{
+  "chapters": [
+    {
+      "id": "01-basics",
+      "title": "HTML 基础",
+      "description": "HTML 入门：文档结构、标签、属性、文本格式化",
+      "order": 1,
+      "sections": [
+        {
+          "id": "01_hello_world",
+          "title": "Hello World",
+          "chapterId": "01-basics",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: Hello World - 第一个HTML页面\n  description: HTML入门：创建你的第一个网页\n  goals: HTML文档基本结构; 标题和段落标签; 浏览器如何解析HTML\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Hello World</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    h1 { color: #059669; }\n  </style>\n</head>\n<body>\n  <h1>Hello World!</h1>\n  <p>这是你的第一个 HTML 页面。</p>\n  <p>HTML 是构建网页的基础语言。每个网页都由 <code>&lt;html&gt;</code>、<code>&lt;head&gt;</code>、<code>&lt;body&gt;</code> 三大结构组成。</p>\n  <hr>\n  <h2>基本结构</h2>\n  <ul>\n    <li><code>&lt;!DOCTYPE html&gt;</code> — 声明文档类型</li>\n    <li><code>&lt;html&gt;</code> — 根元素</li>\n    <li><code>&lt;head&gt;</code> — 头部信息（标题、样式等）</li>\n    <li><code>&lt;body&gt;</code> — 页面内容</li>\n  </ul>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        },
+        {
+          "id": "02_tags_and_attributes",
+          "title": "HTML 标签与属性",
+          "chapterId": "01-basics",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: HTML 标签与属性\n  description: 常用HTML标签及其属性用法\n  goals: 常用标签：div、span、a、img; 属性：id、class、style; 自闭合标签\n  tags: basics, attributes\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>HTML 标签与属性</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    .highlight { background: #d1fae5; padding: 0.3em; border-radius: 4px; }\n  </style>\n</head>\n<body>\n  <h1>HTML 标签与属性</h1>\n  <h2>常用标签</h2>\n  <div id=\"container\">\n    <p>这是一个 <span class=\"highlight\">div 容器</span>中的段落。</p>\n    <a href=\"https://example.com\" target=\"_blank\">点击链接</a>\n  </div>\n  <h2>属性</h2>\n  <p><code>id</code> — 唯一标识符</p>\n  <p><code>class</code> — 样式类名（可重复）</p>\n  <p><code>style</code> — 行内样式</p>\n  <p><code>href</code> — 链接地址</p>\n  <h2>自闭合标签</h2>\n  <img src=\"\" alt=\"示例图片\" width=\"100\" height=\"60\" />\n  <br/>\n  <input type=\"text\" placeholder=\"输入文字\" />\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "02-semantic",
+      "title": "语义化标签",
+      "description": "语义化 HTML：header、nav、main、article、section、footer",
+      "order": 2,
+      "sections": [
+        {
+          "id": "01_semantic_tags",
+          "title": "HTML5 语义化标签",
+          "chapterId": "02-semantic",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: HTML5 语义化标签\n  description: 使用语义化标签提升页面可访问性和SEO\n  goals: header/nav/main/article/section/footer; 语义化的意义; 与div对比\n  tags: semantic, accessibility\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>HTML5 语义化标签</title>\n  <style>\n    body { font-family: sans-serif; max-width: 700px; margin: 0 auto; }\n    header { background: #059669; color: white; padding: 1rem; }\n    nav { background: #064e3b; padding: 0.5rem 1rem; }\n    nav a { color: #a7f3d0; margin-right: 1rem; }\n    main { padding: 1rem; }\n    article { border: 1px solid #e2e8f0; padding: 1rem; margin-bottom: 1rem; }\n    section { margin-bottom: 1rem; }\n    footer { background: #0f172a; color: #94a3b8; padding: 1rem; text-align: center; }\n  </style>\n</head>\n<body>\n  <header>\n    <h1>HTML Cookbook</h1>\n    <p>交互式学习平台</p>\n  </header>\n  <nav>\n    <a href=\"#\">首页</a>\n    <a href=\"#\">基础</a>\n    <a href=\"#\">语义化</a>\n  </nav>\n  <main>\n    <article>\n      <h2>什么是语义化？</h2>\n      <p>语义化标签让浏览器和搜索引擎更好地理解页面结构。</p>\n    </article>\n    <section>\n      <h3>对比 div 与语义标签</h3>\n      <p><code>&lt;div&gt;</code> 没有语义，<code>&lt;article&gt;</code> 表示独立内容块。</p>\n    </section>\n  </main>\n  <footer>\n    <p>&copy; HTML Cookbook 2026</p>\n  </footer>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "03-forms",
+      "title": "表单与输入",
+      "description": "表单元素：input、select、textarea、表单验证",
+      "order": 3,
+      "sections": [
+        {
+          "id": "01_basic_form",
+          "title": "HTML 表单基础",
+          "chapterId": "03-forms",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: HTML 表单基础\n  description: 表单元素：input、select、textarea、按钮\n  goals: input类型; select下拉; textarea多行; 表单提交\n  tags: forms, input\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>HTML 表单基础</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    form { background: #f1f5f9; padding: 1.5rem; border-radius: 8px; }\n    label { display: block; margin-bottom: 0.3rem; font-weight: bold; }\n    input, select, textarea { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #cbd5e1; border-radius: 4px; }\n    button { background: #059669; color: white; padding: 0.7rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <h1>HTML 表单基础</h1>\n  <form onsubmit=\"event.preventDefault(); alert('表单已提交！');\">\n    <label for=\"name\">姓名：</label>\n    <input type=\"text\" id=\"name\" placeholder=\"请输入姓名\" required />\n    <label for=\"email\">邮箱：</label>\n    <input type=\"email\" id=\"email\" placeholder=\"example@mail.com\" />\n    <label for=\"age\">年龄：</label>\n    <input type=\"number\" id=\"age\" min=\"1\" max=\"120\" value=\"25\" />\n    <label for=\"city\">城市：</label>\n    <select id=\"city\">\n      <option value=\"bj\">北京</option>\n      <option value=\"sh\">上海</option>\n      <option value=\"gz\">广州</option>\n    </select>\n    <label for=\"msg\">留言：</label>\n    <textarea id=\"msg\" rows=\"4\" placeholder=\"写下你的想法...\"></textarea>\n    <button type=\"submit\">提交</button>\n  </form>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "04-media",
+      "title": "媒体与嵌入",
+      "description": "图片、音频、视频、iframe 嵌入",
+      "order": 4,
+      "sections": [
+        {
+          "id": "01_images",
+          "title": "HTML 图片与嵌入",
+          "chapterId": "04-media",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: HTML 图片与嵌入\n  description: img标签、音频、视频、iframe嵌入\n  goals: img标签属性; 响应式图片; 音频视频; iframe嵌入\n  tags: media, img\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>HTML 图片与嵌入</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    img { max-width: 100%; border-radius: 8px; }\n    .demo-box { background: #f1f5f9; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; }\n  </style>\n</head>\n<body>\n  <h1>HTML 图片与嵌入</h1>\n  <h2>图片 (img)</h2>\n  <div class=\"demo-box\">\n    <img src=\"https://picsum.photos/400/200\" alt=\"随机示例图片\" width=\"400\" height=\"200\" />\n    <p><code>src</code> — 图片地址, <code>alt</code> — 替代文字</p>\n  </div>\n  <h2>响应式图片</h2>\n  <div class=\"demo-box\">\n    <p>设置 <code>max-width: 100%</code> 让图片自适应容器宽度。</p>\n  </div>\n  <h2>iframe 嵌入</h2>\n  <div class=\"demo-box\">\n    <iframe src=\"https://example.com\" width=\"100%\" height=\"200\" sandbox=\"allow-scripts\" title=\"嵌入示例\">\n      iframe 不支持时显示\n    </iframe>\n  </div>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "05-tables",
+      "title": "表格",
+      "description": "HTML 表格：结构、合并单元格、可访问性",
+      "order": 5,
+      "sections": [
+        {
+          "id": "01_basic_table",
+          "title": "HTML 表格",
+          "chapterId": "05-tables",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: HTML 表格\n  description: 表格结构、合并单元格、表格样式\n  goals: table/tr/td/th; 合并单元格rowspan/colspan; 表格样式\n  tags: table, colspan\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>HTML 表格</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    table { border-collapse: collapse; width: 100%; }\n    th, td { border: 1px solid #cbd5e1; padding: 0.5rem; text-align: left; }\n    th { background: #059669; color: white; }\n    tr:nth-child(even) { background: #f1f5f9; }\n  </style>\n</head>\n<body>\n  <h1>HTML 表格</h1>\n  <h2>基本表格</h2>\n  <table>\n    <thead>\n      <tr>\n        <th>姓名</th>\n        <th>年龄</th>\n        <th>城市</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr><td>张三</td><td>25</td><td>北京</td></tr>\n      <tr><td>李四</td><td>30</td><td>上海</td></tr>\n      <tr><td>王五</td><td>28</td><td>广州</td></tr>\n    </tbody>\n  </table>\n  <h2>合并单元格</h2>\n  <table>\n    <tr>\n      <th colspan=\"2\">合并两列</th>\n      <th>第三列</th>\n    </tr>\n    <tr>\n      <td rowspan=\"2\">合并两行</td>\n      <td>数据1</td>\n      <td>数据2</td>\n    </tr>\n    <tr>\n      <td>数据3</td>\n      <td>数据4</td>\n    </tr>\n  </table>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "06-lists",
+      "title": "列表",
+      "description": "有序列表、无序列表、定义列表、嵌套列表",
+      "order": 6,
+      "sections": [
+        {
+          "id": "01_lists",
+          "title": "HTML 列表",
+          "chapterId": "06-lists",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: HTML 列表\n  description: 有序、无序、定义列表及嵌套列表\n  goals: ul无序列表; ol有序列表; dl定义列表; 嵌套列表\n  tags: list, ul, ol\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>HTML 列表</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    ul, ol, dl { margin-bottom: 1.5rem; }\n  </style>\n</head>\n<body>\n  <h1>HTML 列表</h1>\n  <h2>无序列表 (ul)</h2>\n  <ul>\n    <li>苹果</li>\n    <li>香蕉</li>\n    <li>橘子</li>\n  </ul>\n  <h2>有序列表 (ol)</h2>\n  <ol>\n    <li>第一步：准备工作</li>\n    <li>第二步：编写代码</li>\n    <li>第三步：测试运行</li>\n  </ol>\n  <h2>定义列表 (dl)</h2>\n  <dl>\n    <dt>HTML</dt>\n    <dd>超文本标记语言，用于构建网页</dd>\n    <dt>CSS</dt>\n    <dd>层叠样式表，用于美化网页</dd>\n  </dl>\n  <h2>嵌套列表</h2>\n  <ul>\n    <li>水果\n      <ul>\n        <li>苹果</li>\n        <li>香蕉</li>\n      </ul>\n    </li>\n    <li>蔬菜\n      <ul>\n        <li>西红柿</li>\n        <li>黄瓜</li>\n      </ul>\n    </li>\n  </ul>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "07-links",
+      "title": "链接与导航",
+      "description": "超链接、锚点、导航菜单",
+      "order": 7,
+      "sections": [
+        {
+          "id": "01_links",
+          "title": "HTML 超链接与导航",
+          "chapterId": "07-links",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: HTML 超链接与导航\n  description: 超链接、锚点、导航菜单\n  goals: a标签与href属性; 锚点链接; target属性; 邮件链接\n  tags: links, anchor\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>HTML 超链接与导航</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    nav { background: #059669; padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 1rem; }\n    nav a { color: white; margin-right: 1rem; text-decoration: none; }\n    nav a:hover { text-decoration: underline; }\n  </style>\n</head>\n<body>\n  <h1 id=\"top\">HTML 超链接与导航</h1>\n  <nav>\n    <a href=\"#section1\">第一节</a>\n    <a href=\"#section2\">第二节</a>\n    <a href=\"#top\">回到顶部</a>\n  </nav>\n  <h2 id=\"section1\">基本链接</h2>\n  <p><a href=\"https://example.com\" target=\"_blank\">外部链接（新窗口打开）</a></p>\n  <p><a href=\"#section2\">页面内锚点链接</a></p>\n  <p><a href=\"mailto:test@example.com\">邮件链接</a></p>\n  <h2 id=\"section2\">导航菜单</h2>\n  <p>导航使用 <code>&lt;nav&gt;</code> 标签包裹链接列表。</p>\n  <p><a href=\"#top\">↑ 回到顶部</a></p>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "08-css-intro",
+      "title": "CSS 基础",
+      "description": "CSS 选择器、盒模型、布局基础",
+      "order": 8,
+      "sections": [
+        {
+          "id": "01_selectors",
+          "title": "CSS 选择器与盒模型",
+          "chapterId": "08-css-intro",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: CSS 选择器与盒模型\n  description: CSS基础：选择器、属性、盒模型\n  goals: 元素/类/ID选择器; 盒模型margin/border/padding; 常用CSS属性\n  tags: css, selectors\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>CSS 选择器与盒模型</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    /* 元素选择器 */\n    h2 { color: #059669; }\n    /* 类选择器 */\n    .card { background: #f1f5f9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 2px solid #a7f3d0; }\n    /* ID选择器 */\n    #special { background: #d1fae5; padding: 1rem; border: 3px solid #059669; }\n    /* 盒模型演示 */\n    .box-demo { background: #e2e8f0; border: 4px solid #059669; padding: 1rem; margin: 1rem; }\n  </style>\n</head>\n<body>\n  <h1>CSS 选择器与盒模型</h1>\n  <h2>选择器类型</h2>\n  <div class=\"card\">\n    <p>这是使用 <code>.card</code> 类选择器的元素。</p>\n  </div>\n  <div id=\"special\">\n    <p>这是使用 <code>#special</code> ID 选择器的元素。</p>\n  </div>\n  <h2>盒模型</h2>\n  <div class=\"box-demo\">\n    <p>margin → border → padding → content</p>\n    <p>外层 margin（透明）, border（绿色边框）, padding（浅灰背景）, content（内容区域）</p>\n  </div>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "09-flexbox",
+      "title": "Flexbox 布局",
+      "description": "弹性盒布局：主轴、交叉轴、对齐、换行",
+      "order": 9,
+      "sections": [
+        {
+          "id": "01_flexbox_basics",
+          "title": "Flexbox 基础",
+          "chapterId": "09-flexbox",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: Flexbox 基础\n  description: 弹性盒布局：主轴、交叉轴、对齐、换行\n  goals: display:flex; justify-content; align-items; flex-direction; flex-wrap\n  tags: flexbox, layout\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Flexbox 基础</title>\n  <style>\n    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; padding: 1rem; }\n    .flex-demo { display: flex; background: #f1f5f9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; gap: 0.5rem; }\n    .flex-demo .item { background: #059669; color: white; padding: 0.5rem 1rem; border-radius: 4px; text-align: center; }\n  </style>\n</head>\n<body>\n  <h1>Flexbox 基础</h1>\n  <h2>水平排列</h2>\n  <div class=\"flex-demo\" style=\"justify-content: space-around;\">\n    <div class=\"item\">项目1</div>\n    <div class=\"item\">项目2</div>\n    <div class=\"item\">项目3</div>\n  </div>\n  <p><code>justify-content: space-around</code> — 等间距分布</p>\n  <h2>垂直居中</h2>\n  <div class=\"flex-demo\" style=\"align-items: center; height: 100px;\">\n    <div class=\"item\">居中</div>\n    <div class=\"item\" style=\"padding: 1.5rem;\">较大项目</div>\n    <div class=\"item\">居中</div>\n  </div>\n  <p><code>align-items: center</code> — 交叉轴居中</p>\n  <h2>换行</h2>\n  <div class=\"flex-demo\" style=\"flex-wrap: wrap;\">\n    <div class=\"item\" style=\"width: 150px;\">宽项目1</div>\n    <div class=\"item\" style=\"width: 150px;\">宽项目2</div>\n    <div class=\"item\" style=\"width: 150px;\">宽项目3</div>\n    <div class=\"item\" style=\"width: 150px;\">宽项目4</div>\n  </div>\n  <p><code>flex-wrap: wrap</code> — 超出宽度时换行</p>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "10-grid",
+      "title": "Grid 布局",
+      "description": "网格布局：行列定义、区域、对齐",
+      "order": 10,
+      "sections": [
+        {
+          "id": "01_grid_basics",
+          "title": "Grid 基础",
+          "chapterId": "10-grid",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: Grid 基础\n  description: 网格布局：行列定义、区域、间距\n  goals: grid-template-columns/rows; grid-gap; grid-area\n  tags: grid, layout\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Grid 基础</title>\n  <style>\n    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; padding: 1rem; }\n    .grid-demo { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }\n    .grid-demo .cell { background: #059669; color: white; padding: 0.5rem; border-radius: 4px; text-align: center; }\n  </style>\n</head>\n<body>\n  <h1>Grid 基础</h1>\n  <h2>三列网格</h2>\n  <div class=\"grid-demo\">\n    <div class=\"cell\">1</div>\n    <div class=\"cell\">2</div>\n    <div class=\"cell\">3</div>\n    <div class=\"cell\">4</div>\n    <div class=\"cell\">5</div>\n    <div class=\"cell\">6</div>\n  </div>\n  <p><code>grid-template-columns: 1fr 1fr 1fr</code> — 三等分列</p>\n  <h2>不等分列</h2>\n  <div class=\"grid-demo\" style=\"grid-template-columns: 2fr 1fr 1fr;\">\n    <div class=\"cell\">宽</div>\n    <div class=\"cell\">中</div>\n    <div class=\"cell\">窄</div>\n    <div class=\"cell\">宽</div>\n    <div class=\"cell\">中</div>\n    <div class=\"cell\">窄</div>\n  </div>\n  <p><code>grid-template-columns: 2fr 1fr 1fr</code> — 第一列更宽</p>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "11-responsive",
+      "title": "响应式设计",
+      "description": "媒体查询、视口、移动优先",
+      "order": 11,
+      "sections": [
+        {
+          "id": "01_media_query",
+          "title": "响应式设计",
+          "chapterId": "11-responsive",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: 响应式设计\n  description: 媒体查询、视口单位、移动优先\n  goals: @media媒体查询; viewport单位vw/vh; 移动优先设计\n  tags: responsive, media-query\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>响应式设计</title>\n  <style>\n    body { font-family: sans-serif; margin: 1rem; }\n    .container { padding: 1rem; background: #f1f5f9; border-radius: 8px; }\n    .grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }\n    .card { background: white; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 6px; }\n    /* 平板 */\n    @media (min-width: 600px) {\n      .grid { grid-template-columns: 1fr 1fr; }\n    }\n    /* 桌面 */\n    @media (min-width: 900px) {\n      .grid { grid-template-columns: 1fr 1fr 1fr; }\n    }\n  </style>\n</head>\n<body>\n  <h1>响应式设计</h1>\n  <div class=\"container\">\n    <p>调整浏览器窗口大小查看变化：</p>\n    <div class=\"grid\">\n      <div class=\"card\"><h3>卡片1</h3><p>窄屏：单列</p></div>\n      <div class=\"card\"><h3>卡片2</h3><p>中屏：两列</p></div>\n      <div class=\"card\"><h3>卡片3</h3><p>宽屏：三列</p></div>\n    </div>\n  </div>\n  <p>移动优先：先写小屏样式，再用 <code>@media</code> 扩展到大屏。</p>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "12-animations",
+      "title": "CSS 动画",
+      "description": "过渡、关键帧动画、变换",
+      "order": 12,
+      "sections": [
+        {
+          "id": "01_transitions",
+          "title": "CSS 过渡与动画",
+          "chapterId": "12-animations",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: CSS 过渡与动画\n  description: transition过渡、@keyframes关键帧动画、transform变换\n  goals: transition属性; @keyframes动画; transform变换\n  tags: animation, transition\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>CSS 过渡与动画</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    .hover-box { background: #059669; color: white; padding: 1rem; border-radius: 6px;\n                transition: all 0.3s ease; cursor: pointer; }\n    .hover-box:hover { transform: scale(1.05); background: #047857; box-shadow: 0 4px 12px rgba(5,150,105,0.3); }\n    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }\n    .animated { animation: pulse 2s infinite; background: #d1fae5; padding: 1rem; border-radius: 6px; text-align: center; }\n  </style>\n</head>\n<body>\n  <h1>CSS 过渡与动画</h1>\n  <h2>过渡 (transition)</h2>\n  <div class=\"hover-box\">鼠标悬停试试 → 缓慢放大变色</div>\n  <p><code>transition: all 0.3s ease</code> — 属性变化平滑过渡</p>\n  <h2>关键帧动画 (@keyframes)</h2>\n  <div class=\"animated\">持续脉动效果</div>\n  <p><code>@keyframes pulse</code> + <code>animation: pulse 2s infinite</code></p>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "13-javascript",
+      "title": "JavaScript 交互",
+      "description": "DOM 操作、事件处理、动态效果",
+      "order": 13,
+      "sections": [
+        {
+          "id": "01_dom_basics",
+          "title": "JavaScript DOM 操作",
+          "chapterId": "13-javascript",
+          "description": "",
+          "goals": [],
+          "code": "<!--\n  title: JavaScript DOM 操作\n  description: DOM基础操作：选取元素、修改内容、添加事件\n  goals: getElementById/querySelector; 修改textContent/style; addEventListener\n  tags: javascript, dom\n-->\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>JavaScript DOM 操作</title>\n  <style>\n    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }\n    .btn { background: #059669; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; margin-right: 0.5rem; }\n    #output { background: #f1f5f9; padding: 1rem; border-radius: 6px; margin-top: 1rem; min-height: 60px; }\n  </style>\n</head>\n<body>\n  <h1>JavaScript DOM 操作</h1>\n  <button class=\"btn\" onclick=\"changeText()\">修改文字</button>\n  <button class=\"btn\" onclick=\"changeColor()\">修改颜色</button>\n  <button class=\"btn\" onclick=\"addItem()\">添加元素</button>\n  <div id=\"output\">点击按钮查看效果</div>\n  <script>\n    function changeText() {\n      document.getElementById('output').textContent = '文字已修改！';\n    }\n    function changeColor() {\n      document.getElementById('output').style.background = '#d1fae5';\n    }\n    function addItem() {\n      const p = document.createElement('p');\n      p.textContent = '新增的段落';\n      document.getElementById('output').appendChild(p);\n    }\n  </script>\n</body>\n</html>",
+          "runnable": true,
+          "tags": []
+        }
+      ]
+    }
+  ],
+  "generatedAt": "2026-06-04T07:20:06.719Z"
+}
