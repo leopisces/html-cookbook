@@ -1,0 +1,103 @@
+<!--
+  title: 文本标签大全
+  description: HTML文本处理标签：段落、强调、引用、代码、上标下标等
+  goals: 段落标签p与换行br; 强调标签strong与em; 引用标签blockquote与q; 代码标签code与pre; 标记标签mark与small; 上标sup与下标sub; 删除线del与ins; 缩写abbr; 语音注释ruby
+  tags: text, formatting
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>文本标签大全</title>
+  <style>
+    body { font-family: sans-serif; max-width: 650px; margin: 2rem auto; padding: 1rem; line-height: 1.8; }
+    h1 { color: #059669; }
+    h2 { color: #047857; border-bottom: 2px solid #d1fae5; padding-bottom: 0.3rem; }
+    .demo-box { background: #f0fdf4; border: 1px solid #a7f3d0; padding: 1rem; margin: 0.5rem 0; border-radius: 6px; }
+    code { background: #e5e7eb; padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    pre { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 6px; overflow-x: auto; }
+    pre code { background: none; color: inherit; padding: 0; }
+    blockquote { border-left: 4px solid #059669; margin: 0.5rem 0; padding: 0.5rem 1rem; background: #ecfdf5; }
+    mark { background: #fef08a; padding: 0.1em 0.3em; }
+    del { color: #ef4444; }
+    ins { color: #059669; text-decoration: none; background: #d1fae5; }
+    hr { border: none; border-top: 2px dashed #d1d5db; margin: 1.5rem 0; }
+  </style>
+</head>
+<body>
+  <h1>文本标签大全</h1>
+
+  <h2>段落与换行</h2>
+  <div class="demo-box">
+    <p>春眠不觉晓，<br>处处闻啼鸟。<br>夜来风雨声，<br>花落知多少。</p>
+    <p><code>&lt;br&gt;</code> 用于诗文中强制换行，<code>&lt;p&gt;</code> 表示段落。</p>
+  </div>
+
+  <h2>强调标签</h2>
+  <div class="demo-box">
+    <p><strong>strong 表示重要文本</strong>（通常加粗）— 带有语义。</p>
+    <p><b>b 只是视觉效果加粗</b> — 无语义，不推荐。</p>
+    <p><em>em 表示强调文本</em>（通常斜体）— 带有语义。</p>
+    <p><i>i 只是视觉效果斜体</i> — 无语义，用于术语、外语等。</p>
+  </div>
+
+  <h2>引用标签</h2>
+  <div class="demo-box">
+    <blockquote cite="https://example.com">
+      blockquote 用于长引用，cite 属性记录来源 URL。浏览器默认会缩进显示。
+      <footer>— <cite>来源作者</cite></footer>
+    </blockquote>
+    <p>孔子说：<q>学而时习之，不亦说乎。</q> — <code>&lt;q&gt;</code> 用于行内短引用，浏览器会自动添加引号。</p>
+  </div>
+
+  <h2>代码标签</h2>
+  <div class="demo-box">
+    <p>使用 <code>console.log()</code> 可以输出调试信息 — 行内代码用 <code>&lt;code&gt;</code>。</p>
+    <p>多行代码块用 <code>&lt;pre&gt;&lt;code&gt;</code> 组合：</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+  &lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  <h2>标记文本</h2>
+  <div class="demo-box">
+    <p>搜索结果中常常使用 <mark>高亮标记</mark> 来突出匹配的关键词，就像搜索引擎一样。</p>
+    <p><small>small 标签用于附属说明、版权信息、法律声明等小字内容。</small></p>
+  </div>
+
+  <h2>上标与下标</h2>
+  <div class="demo-box">
+    <p>化学式：H<sub>2</sub>O（水分子，sub 表示下标）</p>
+    <p>物理公式：E = mc<sup>2</sup>（爱因斯坦质能方程，sup 表示上标）</p>
+    <p>数学：x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup>（勾股定理）</p>
+  </div>
+
+  <h2>编辑标记（删除与插入）</h2>
+  <div class="demo-box">
+    <p>原价：<del>199 元</del></p>
+    <p>现价：<ins>99 元</ins>（限时优惠）</p>
+    <p><code>&lt;del&gt;</code> 表示被删除的内容，<code>&lt;ins&gt;</code> 表示新插入的内容。</p>
+  </div>
+
+  <h2>缩写与键盘</h2>
+  <div class="demo-box">
+    <p><abbr title="HyperText Markup Language">HTML</abbr> 全称是超文本标记语言，鼠标悬停可查看全称。</p>
+    <p><abbr title="Cascading Style Sheets">CSS</abbr> 全称是层叠样式表。</p>
+    <p>保存文件：按 <kbd>Ctrl</kbd> + <kbd>S</kbd>（kbd 标签表示键盘按键）</p>
+    <p>程序输出：<samp>Build completed successfully.</samp>（samp 表示程序输出）</p>
+  </div>
+
+  <h2>注音与分隔线</h2>
+  <div class="demo-box">
+    <p>
+      <ruby>汉<rt>han</rt>字<rt>zi</rt></ruby> 使用 ruby/rt 标签标注拼音。
+    </p>
+    <hr>
+    <p>上面使用 <code>&lt;hr&gt;</code> 添加了主题分隔线，表示内容主题的转换。</p>
+  </div>
+</body>
+</html>

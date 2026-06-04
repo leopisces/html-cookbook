@@ -1,0 +1,92 @@
+<!--
+  title: 表格进阶：合并与语义
+  description: HTML表格高级特性：合并单元格、语义分组、可访问性
+  goals: colspan与rowspan合并单元格; thead/tbody/tfoot语义分组; caption表格标题; colgroup与col列样式; scope属性可访问性
+  tags: table, advanced
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>表格进阶：合并与语义</title>
+  <style>
+    body { font-family: sans-serif; max-width: 650px; margin: 2rem auto; padding: 1rem; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 1.5rem; }
+    th, td { border: 1px solid #cbd5e1; padding: 0.5rem; text-align: center; }
+    th { background: #059669; color: white; }
+    caption { caption-side: top; font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1rem; }
+    tfoot td, tfoot th { background: #f1f5f9; font-weight: bold; }
+    .col-time { background: #ecfdf5; width: 80px; }
+    .col-math { background: #fef3c7; }
+    .price-table td:first-child { text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>表格进阶：合并与语义</h1>
+
+  <h2>colspan 列合并 —— 课程表</h2>
+  <table>
+    <caption>每周课程安排</caption>
+    <colgroup>
+      <col class="col-time">
+      <col span="5">
+    </colgroup>
+    <thead>
+      <tr><th>节次</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">09:00</th><td>HTML</td><td colspan="2">CSS 布局专题</td><td>HTML</td><td>项目实战</td></tr>
+      <tr><th scope="row">14:00</th><td>JS 基础</td><td>TS 入门</td><td colspan="3">项目实战（全下午）</td></tr>
+    </tbody>
+  </table>
+
+  <h2>rowspan 与 thead/tbody/tfoot —— 销售报表</h2>
+  <table>
+    <caption>2024 上半年销售数据</caption>
+    <thead>
+      <tr><th>产品</th><th>Q1 销售额</th><th>Q2 销售额</th><th>半年汇总</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>A 产品</td><td>100 万</td><td>150 万</td><td rowspan="2">550 万</td></tr>
+      <tr><td>B 产品</td><td>120 万</td><td>180 万</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><th scope="row">季度合计</th><td>220 万</td><td>330 万</td><td>550 万</td></tr>
+    </tfoot>
+  </table>
+
+  <h2>colspan + rowspan 组合 —— 值班表</h2>
+  <table>
+    <caption>周末值班安排</caption>
+    <tr><th>时段</th><th>周六</th><th>周日</th></tr>
+    <tr><th>08:00-12:00</th><td>张三</td><td rowspan="2">李四（全天）</td></tr>
+    <tr><th>14:00-18:00</th><td>王五</td></tr>
+    <tr><th colspan="3">注：值班期间请保持电话畅通</th></tr>
+  </table>
+
+  <h2>headers 属性 —— 可访问性增强</h2>
+  <table>
+    <caption>员工月度考勤记录</caption>
+    <tr>
+      <td></td>
+      <th id="am">上午</th>
+      <th id="pm">下午</th>
+    </tr>
+    <tr>
+      <th id="zhang">张三</th>
+      <td headers="am zhang">出勤</td>
+      <td headers="pm zhang">请假</td>
+    </tr>
+    <tr>
+      <th id="li">李四</th>
+      <td headers="am li">迟到</td>
+      <td headers="pm li">出勤</td>
+    </tr>
+    <tr>
+      <th id="wang">王五</th>
+      <td headers="am wang">出勤</td>
+      <td headers="pm wang">出勤</td>
+    </tr>
+  </table>
+</body>
+</html>

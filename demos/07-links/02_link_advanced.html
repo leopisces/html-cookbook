@@ -1,0 +1,69 @@
+<!--
+  title: 链接进阶：download与rel属性
+  description: HTML链接高级用法：download下载、rel关系、图片链接、邮件电话链接
+  goals: download属性文件下载; rel属性(noreferrer,noopener,nofollow); 图片链接与map; 邮件与电话链接; base标签全局路径
+  tags: links, advanced
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>链接进阶：download与rel属性</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    code { background: #f3f4f6; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.9em; }
+    .demo-block { border: 1px solid #d1d5db; border-radius: 6px; padding: 0.75rem; margin: 0.75rem 0; }
+    .img-placeholder { display: inline-block; width: 200px; height: 80px; background: linear-gradient(135deg, #059669, #34d399); border-radius: 4px; line-height: 80px; text-align: center; color: white; font-size: 0.85rem; }
+    .img-link img { width: 120px; border-radius: 4px; border: 2px solid transparent; transition: border 0.2s; }
+    .img-link img:hover { border-color: #059669; }
+  </style>
+</head>
+<body>
+  <h1>链接进阶</h1>
+
+  <h2>download 下载属性</h2>
+  <div class="demo-block">
+    <p><code>&lt;a href="file.pdf" download&gt;</code> 浏览器直接下载而非打开。</p>
+    <p><code>&lt;a href="image.png" download="photo.png"&gt;</code> 指定下载后的文件名。</p>
+    <p>提示: download 仅对同源 URL 生效。</p>
+  </div>
+
+  <h2>rel 安全属性</h2>
+  <div class="demo-block">
+    <p><code>rel="noopener"</code> — 防止新页面通过 <code>window.opener</code> 访问原页面。</p>
+    <p><code>rel="noreferrer"</code> — 不发送 Referer 请求头，隐藏来源。</p>
+    <p><code>rel="nofollow"</code> — 告诉搜索引擎不要追踪此链接。</p>
+    <p>推荐组合: <code>rel="noopener noreferrer"</code>（搭配 target="_blank" 使用）。</p>
+  </div>
+
+  <h2>图片链接</h2>
+  <div class="demo-block">
+    <a class="img-link" href="#" title="点击图片跳转">
+      <div class="img-placeholder">示例图片</div>
+    </a>
+    <p style="margin-top:0.5rem;font-size:0.85rem;">用 <code>&lt;a&gt;</code> 包裹 <code>&lt;img&gt;</code> 即可创建可点击图片。</p>
+  </div>
+
+  <h2>图片热区映射 (&lt;map&gt;)</h2>
+  <div class="demo-block">
+    <p>使用 <code>&lt;map&gt;</code> 和 <code>&lt;area&gt;</code> 定义图片上的可点击区域：</p>
+    <p><code>&lt;area shape="rect" coords="0,0,100,80" href="page1.html" alt="区域1"&gt;</code></p>
+    <p><code>&lt;area shape="circle" coords="150,40,30" href="page2.html" alt="区域2"&gt;</code></p>
+    <p>shape 取值: <code>rect</code>（矩形）、<code>circle</code>（圆形）、<code>poly</code>（多边形）。</p>
+  </div>
+
+  <h2>邮件与电话链接</h2>
+  <div class="demo-block">
+    <p><a href="mailto:user@example.com">发送邮件</a></p>
+    <p><code>mailto:user@example.com?subject=反馈&body=你好</code> 可预设主题和正文。</p>
+    <p><a href="tel:+8613800000000">拨打电话</a> — <code>tel:+8613800000000</code></p>
+  </div>
+
+  <h2>&lt;base&gt; 标签</h2>
+  <div class="demo-block">
+    <p>在 <code>&lt;head&gt;</code> 中使用 <code>&lt;base href="https://example.com/"&gt;</code></p>
+    <p>页面内所有相对路径链接都会以此 URL 为基准解析。</p>
+    <p>注意: 一个页面只能有一个 <code>&lt;base&gt;</code> 标签。</p>
+  </div>
+</body>
+</html>

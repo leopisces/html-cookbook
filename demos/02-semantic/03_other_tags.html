@@ -1,0 +1,108 @@
+<!--
+  title: 其他语义标签
+  description: HTML5语义标签：details/summary、figure/figcaption、time、address、dialog
+  goals: details/summary可折叠内容; figure/figcaption图文组合; time日期标签; address联系方式; dialog对话框
+  tags: semantic, html5
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>其他语义标签</title>
+  <style>
+    body { font-family: sans-serif; max-width: 650px; margin: 2rem auto; padding: 1rem; line-height: 1.8; }
+    h1 { color: #059669; }
+    h2 { color: #047857; border-bottom: 2px solid #d1fae5; padding-bottom: 0.3rem; }
+    .demo-box { background: #f0fdf4; border: 1px solid #a7f3d0; padding: 1rem; margin: 0.5rem 0; border-radius: 6px; }
+    code { background: #e5e7eb; padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    details { margin: 0.5rem 0; border: 1px solid #d1d5db; border-radius: 6px; }
+    summary { padding: 0.6rem 1rem; background: #f3f4f6; cursor: pointer; font-weight: bold; border-radius: 6px; }
+    details[open] summary { border-bottom: 1px solid #d1d5db; border-radius: 6px 6px 0 0; }
+    .detail-content { padding: 1rem; }
+    figure { border: 1px solid #e5e7eb; padding: 1rem; text-align: center; border-radius: 6px; }
+    figure .img-placeholder { background: linear-gradient(135deg, #047857, #059669); color: white; padding: 3rem; font-size: 1.5rem; font-weight: bold; }
+    figcaption { color: #6b7280; font-size: 0.9em; margin-top: 0.5rem; }
+    address { font-style: normal; background: #fef3c7; padding: 0.8rem; border-radius: 6px; border-left: 4px solid #f59e0b; }
+    dfn { font-weight: bold; font-style: normal; color: #059669; border-bottom: 1px dashed #059669; }
+    dialog { border: 2px solid #059669; border-radius: 8px; padding: 1.5rem; max-width: 400px; }
+    dialog::backdrop { background: rgba(0,0,0,0.5); }
+  </style>
+</head>
+<body>
+  <h1>其他语义标签</h1>
+
+  <h2>details / summary（可折叠内容）</h2>
+  <div class="demo-box">
+    <details>
+      <summary>什么是 HTML？</summary>
+      <div class="detail-content">
+        <p>HTML（HyperText Markup Language）是构建网页的标准标记语言。它使用标签来描述网页的结构和内容。</p>
+      </div>
+    </details>
+    <details>
+      <summary>什么是 CSS？</summary>
+      <div class="detail-content">
+        <p>CSS（Cascading Style Sheets）用于控制网页的外观和布局。它可以设置颜色、字体、间距等视觉效果。</p>
+      </div>
+    </details>
+    <details open>
+      <summary>默认展开的项目</summary>
+      <div class="detail-content">
+        <p>这个项目设置了 <code>open</code> 属性，所以默认是展开的。常用于 FAQ 页面。</p>
+      </div>
+    </details>
+  </div>
+
+  <h2>figure / figcaption（图文组合）</h2>
+  <div class="demo-box">
+    <figure>
+      <div class="img-placeholder">示例图片区域</div>
+      <figcaption>图1：使用 CSS 渐变模拟的图片占位区域</figcaption>
+    </figure>
+    <p><code>&lt;figure&gt;</code> 表示独立的内容单元（图片、图表、代码片段等），<code>&lt;figcaption&gt;</code> 为其添加说明文字。</p>
+  </div>
+
+  <h2>time 日期标签</h2>
+  <div class="demo-box">
+    <p>文章发布于：<time datetime="2026-06-04">2026年6月4日</time></p>
+    <p>活动时间：<time datetime="2026-06-10T14:30">6月10日下午2:30</time></p>
+    <p>营业时间：每天 <time datetime="09:00">9:00</time> - <time datetime="18:00">18:00</time></p>
+    <p><code>datetime</code> 属性提供机器可读的日期格式，便于搜索引擎和浏览器解析。</p>
+  </div>
+
+  <h2>data 数值标签</h2>
+  <div class="demo-box">
+    <p>当前评分：<data value="4.8">四星半</data>（共5分满分）</p>
+    <p>产品编号：<data value="SKU-88473">豪华套装</data></p>
+    <p><code>&lt;data&gt;</code> 的 <code>value</code> 属性提供机器可读的数值版本。</p>
+  </div>
+
+  <h2>address 联系方式</h2>
+  <div class="demo-box">
+    <address>
+      联系我们：<br>
+      邮箱：contact@example.com <br>
+      电话：+86 400-123-4567 <br>
+      地址：北京市海淀区中关村大街 1 号
+    </address>
+    <p style="margin-top:0.5rem;"><code>&lt;address&gt;</code> 用于提供作者或所属组织的联系信息。</p>
+  </div>
+
+  <h2>dfn 术语定义</h2>
+  <div class="demo-box">
+    <p><dfn>语义化 HTML</dfn> 指的是使用具有实际含义的 HTML 标签来描述内容，而非仅依赖 <code>&lt;div&gt;</code> 和 <code>&lt;span&gt;</code>。</p>
+    <p><dfn id="responsive">响应式设计</dfn> 是一种让网页在不同屏幕尺寸下都能良好显示的设计方法。</p>
+    <p><code>&lt;dfn&gt;</code> 标记一个术语的定义位置，可以配合 <code>id</code> 被其他地方引用。</p>
+  </div>
+
+  <h2>wbr 可选换行机会</h2>
+  <div class="demo-box">
+    <p>下面是一个很长的单词，会在 <code>&lt;wbr&gt;</code> 标记的位置换行：</p>
+    <p style="word-break: keep-all; border: 1px dashed #d1d5db; padding: 0.5rem;">
+      Super<wbr>cali<wbr>fragilistic<wbr>expiali<wbr>docious
+    </p>
+    <p>拖动浏览器窗口变窄来观察 <code>&lt;wbr&gt;</code> 的换行效果。</p>
+  </div>
+
+</body>
+</html>

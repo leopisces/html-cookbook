@@ -1,0 +1,78 @@
+<!--
+  title: iframe 网页嵌入
+  description: iframe嵌入其他网页：基本用法、sandbox安全属性、loading懒加载
+  goals: iframe基本嵌入; sandbox安全沙箱属性; loading懒加载属性; name与target配合
+  tags: iframe, embedding
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>iframe 网页嵌入</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    .demo-box { background: #f1f5f9; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; }
+    code { background: #e2e8f0; padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    iframe { border: 2px solid #cbd5e1; border-radius: 6px; }
+    .sandbox-table { border-collapse: collapse; width: 100%; font-size: 0.85rem; }
+    .sandbox-table th, .sandbox-table td { border: 1px solid #cbd5e1; padding: 0.35em 0.5em; text-align: left; }
+    .sandbox-table th { background: #e2e8f0; }
+    .link-row a { margin-right: 1em; color: #2563eb; }
+  </style>
+</head>
+<body>
+  <h1>iframe 网页嵌入</h1>
+
+  <h2>基本用法</h2>
+  <div class="demo-box">
+    <iframe src="about:blank" width="100%" height="120" srcdoc="
+      <h3 style='margin:0 0 0.5em'>嵌入的内容</h3>
+      <p style='margin:0'>这是一个通过 <b>srcdoc</b> 属性直接写入 HTML 的 iframe 演示。</p>
+    "></iframe>
+    <p><code>src</code> — 嵌入页面地址、<code>width/height</code> — 尺寸、<code>srcdoc</code> — 直接内联 HTML</p>
+  </div>
+
+  <h2>sandbox 安全沙箱</h2>
+  <div class="demo-box">
+    <p>启用 <code>sandbox</code> 后，iframe 默认禁用所有敏感操作。通过 <code>allow-*</code> 逐步开放权限：</p>
+    <table class="sandbox-table">
+      <tr><th>取值</th><th>允许的操作</th></tr>
+      <tr><td><code>allow-scripts</code></td><td>执行 JavaScript</td></tr>
+      <tr><td><code>allow-forms</code></td><td>提交表单</td></tr>
+      <tr><td><code>allow-same-origin</code></td><td>视为同源（可读写 Cookie、localStorage）</td></tr>
+      <tr><td><code>allow-popups</code></td><td>打开弹窗（如 window.open）</td></tr>
+      <tr><td><code>allow-top-navigation</code></td><td>修改顶层窗口地址</td></tr>
+      <tr><td><code>allow-modals</code></td><td>显示模态弹窗</td></tr>
+      <tr><td><code>allow-presentation</code></td><td>使用 Presentation API</td></tr>
+    </table>
+    <p style="margin-top:0.5em;">多个值空格分隔：<code>sandbox=&quot;allow-scripts allow-forms&quot;</code></p>
+    <p><strong>安全注意：</strong>不要同时对不受信任的内容使用 <code>allow-scripts</code> 和 <code>allow-same-origin</code>。</p>
+  </div>
+
+  <h2>loading 懒加载</h2>
+  <div class="demo-box">
+    <p><code>loading=&quot;lazy&quot;</code> 让 iframe 延迟加载，直到滚动到视口附近。默认值为 <code>auto</code>（浏览器自行决定），也可使用 <code>eager</code>（立即加载）。</p>
+    <pre><code>&lt;iframe src=&quot;page.html&quot; loading=&quot;lazy&quot; width=&quot;400&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;</code></pre>
+  </div>
+
+  <h2>name 与 target 配合</h2>
+  <div class="demo-box">
+    <p>点击下方链接，内容会加载到 <code>name=&quot;demo-frame&quot;</code> 的 iframe 中：</p>
+    <div class="link-row">
+      <a href="data:text/html;charset=utf-8,%3Ch2%3E%E9%A1%B5%E9%9D%A2A%3C%2Fh2%3E%3Cp%3E%E8%BF%99%E6%98%AF%E9%80%9A%E8%BF%87%E9%93%BE%E6%8E%A5%E5%8A%A0%E8%BD%BD%E5%88%B0%20iframe%20%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82%3C%2Fp%3E" target="demo-frame">页面A</a>
+      <a href="data:text/html;charset=utf-8,%3Ch2%3E%E9%A1%B5%E9%9D%A2B%3C%2Fh2%3E%3Cp%3E%E8%BF%99%E6%98%AF%E5%8F%A6%E4%B8%80%E6%AE%B5%E5%86%85%E5%AE%B9%EF%BC%8C%E6%BC%94%E7%A4%BA%20name%20%2B%20target%20%E9%85%8D%E5%90%88%E3%80%82%3C%2Fp%3E" target="demo-frame">页面B</a>
+    </div>
+    <iframe name="demo-frame" width="100%" height="120" srcdoc="
+      &lt;p style='color:#64748b; text-align:center; margin-top:2em;'&gt;点击上方链接加载内容&lt;/p&gt;
+    " style="margin-top:0.5em;"></iframe>
+    <p style="margin-top:0.5em;">关键属性：<code>name=&quot;demo-frame&quot;</code>（给 iframe 命名），<code>&lt;a target=&quot;demo-frame&quot;&gt;</code>（链接在此 iframe 中打开）。链接使用 <code>data:text/html</code> URI 内联 HTML 内容。</p>
+  </div>
+
+  <h2>其他属性与兼容</h2>
+  <div class="demo-box">
+    <p><code>allowfullscreen</code> — 允许 iframe 内容进入全屏模式。</p>
+    <p><code>frameborder=&quot;0&quot;</code> — 移除默认边框（CSS 中用 <code>border: none</code> 替代更好）。</p>
+    <p>兜底内容：在 <code>&lt;iframe&gt;...&lt;/iframe&gt;</code> 之间写文字，不支持 iframe 的浏览器会显示。</p>
+  </div>
+</body>
+</html>

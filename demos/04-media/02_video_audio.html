@@ -1,0 +1,84 @@
+<!--
+  title: 多媒体标签：视频与音频
+  description: HTML5视频和音频标签：video、audio、source、track
+  goals: video标签与常用属性; audio标签与播放控制; source标签多格式兼容; track字幕标签
+  tags: video, audio, multimedia
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>多媒体标签：视频与音频</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    .player-placeholder { background: #1e293b; color: #94a3b8; padding: 2rem; text-align: center; border-radius: 8px; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .demo-box { background: #f1f5f9; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; }
+    code { background: #e2e8f0; padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+    th, td { border: 1px solid #cbd5e1; padding: 0.4em 0.6em; text-align: left; }
+    th { background: #e2e8f0; }
+  </style>
+</head>
+<body>
+  <h1>多媒体标签：视频与音频</h1>
+
+  <h2>video 标签</h2>
+  <div class="demo-box">
+    <div class="player-placeholder">
+      [ 视频播放器区域 ]<br>
+      &lt;video src=&quot;movie.mp4&quot; controls width=&quot;400&quot; height=&quot;225&quot; poster=&quot;cover.jpg&quot;&gt;&lt;/video&gt;
+    </div>
+    <p>基本语法：<code>src</code>（视频地址）、<code>controls</code>（显示控制条）、<code>poster</code>（封面图）</p>
+  </div>
+
+  <h2>video 常用属性</h2>
+  <table>
+    <tr><th>属性</th><th>作用</th></tr>
+    <tr><td><code>controls</code></td><td>显示播放控件（布尔属性）</td></tr>
+    <tr><td><code>autoplay</code></td><td>自动播放（通常需配合 muted）</td></tr>
+    <tr><td><code>loop</code></td><td>循环播放</td></tr>
+    <tr><td><code>muted</code></td><td>静音播放</td></tr>
+    <tr><td><code>playsinline</code></td><td>内联播放（移动端不强制全屏）</td></tr>
+    <tr><td><code>preload</code></td><td>预加载策略：none / metadata / auto</td></tr>
+    <tr><td><code>poster</code></td><td>视频加载前显示的封面图片</td></tr>
+  </table>
+
+  <h2>source 多格式兼容</h2>
+  <div class="demo-box">
+    <div class="player-placeholder">
+      [ 视频播放器 — 格式回退示例 ]<br>
+      &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot;&gt;<br>
+      &lt;source src=&quot;movie.webm&quot; type=&quot;video/webm&quot;&gt;<br>
+      &lt;source src=&quot;movie.ogv&quot; type=&quot;video/ogg&quot;&gt;
+    </div>
+    <p>浏览器按顺序尝试，使用第一个支持的格式。<code>type</code> 帮助浏览器跳过不支持的格式。</p>
+  </div>
+
+  <h2>audio 标签</h2>
+  <div class="demo-box">
+    <div class="player-placeholder">
+      [ 音频播放器区域 ]<br>
+      &lt;audio src=&quot;song.mp3&quot; controls&gt;&lt;/audio&gt;
+    </div>
+    <p>用法与 <code>&lt;video&gt;</code> 类似，支持 <code>controls</code>、<code>autoplay</code>、<code>loop</code>、<code>muted</code>、<code>preload</code> 等属性。</p>
+  </div>
+
+  <h2>track 字幕标签</h2>
+  <div class="demo-box">
+    <p><code>&lt;track&gt;</code> 用于为视频添加字幕或章节信息：</p>
+    <pre><code>&lt;track src=&quot;subtitle-zh.vtt&quot; kind=&quot;subtitles&quot; srclang=&quot;zh&quot; label=&quot;中文&quot; default&gt;</code></pre>
+    <p>属性说明：<code>label</code>（显示名称）、<code>kind</code>（subtitles/captions/descriptions）、<code>srclang</code>（语言代码）、<code>default</code>（默认启用）</p>
+  </div>
+
+  <h2>浏览器兼容与兜底</h2>
+  <div class="demo-box">
+    <p>在 <code>&lt;video&gt;</code> 内部写文字，不支持 HTML5 的浏览器会显示：</p>
+    <pre><code>&lt;video controls&gt;
+  &lt;source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;video.webm&quot; type=&quot;video/webm&quot;&gt;
+  您的浏览器不支持 HTML5 视频播放。
+&lt;/video&gt;</code></pre>
+    <p>主流格式覆盖：MP4 (H.264) 覆盖面最广，WebM 和 Ogg 作为补充回退。</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!--
+  title: 定义列表与嵌套列表
+  description: HTML定义列表dl/dt/dd、列表嵌套与组合
+  goals: dl/dt/dd定义列表; 列表嵌套(有序套无序); 多个dd对应一个dt; 列表与CSS配合
+  tags: list, definition
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>定义列表与嵌套列表</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+    dt { font-weight: bold; color: #065f46; margin-top: 0.75rem; }
+    dd { margin-left: 1.5rem; margin-bottom: 0.5rem; }
+    ul, ol { margin-top: 0.25rem; }
+    .faq dt::before { content: "Q: "; color: #059669; }
+    .faq dd::before { content: "A: "; color: #d97706; }
+  </style>
+</head>
+<body>
+  <h1>定义列表与嵌套列表</h1>
+
+  <h2>定义列表 (dl/dt/dd)</h2>
+  <dl>
+    <dt>HTML</dt>
+    <dd>超文本标记语言，定义网页的结构与内容。</dd>
+    <dd>最新版本为 HTML5，由 W3C 和 WHATWG 共同维护。</dd>
+
+    <dt>CSS</dt>
+    <dd>层叠样式表，控制网页的外观与布局。</dd>
+
+    <dt>JavaScript</dt>
+    <dd>网页脚本语言，实现交互与动态效果。</dd>
+  </dl>
+
+  <h2>嵌套列表 — 无序套有序</h2>
+  <ul>
+    <li>前端开发
+      <ol>
+        <li>HTML 结构</li>
+        <li>CSS 样式</li>
+        <li>JavaScript 交互</li>
+      </ol>
+    </li>
+    <li>后端开发
+      <ol>
+        <li>数据库设计</li>
+        <li>API 接口</li>
+        <li>服务器部署</li>
+      </ol>
+    </li>
+  </ul>
+
+  <h2>嵌套列表 — 有序套无序</h2>
+  <ol>
+    <li>准备食材
+      <ul>
+        <li>面粉 200g</li>
+        <li>鸡蛋 2个</li>
+        <li>牛奶 100ml</li>
+      </ul>
+    </li>
+    <li>混合搅拌</li>
+    <li>煎制成型</li>
+  </ol>
+
+  <h2>FAQ 问答（定义列表应用）</h2>
+  <dl class="faq">
+    <dt>如何学习 HTML？</dt>
+    <dd>从基础标签开始，逐步理解文档结构，多写代码练习。</dd>
+    <dt>什么是语义化标签？</dt>
+    <dd>使用具有明确含义的标签（如 &lt;header&gt;、&lt;nav&gt;），提高可读性和可访问性。</dd>
+  </dl>
+</body>
+</html>

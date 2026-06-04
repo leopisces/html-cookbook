@@ -1,0 +1,93 @@
+<!--
+  title: HTML 元素属性详解
+  description: 深入理解HTML属性：全局属性、布尔属性、自定义数据属性
+  goals: 全局属性(id,class,title,style,hidden); 布尔属性(required,disabled,checked); data-*自定义属性; contenteditable可编辑属性; tabindex与accesskey; lang与dir属性
+  tags: attributes, global-attributes
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML 元素属性详解</title>
+  <style>
+    body { font-family: sans-serif; max-width: 650px; margin: 2rem auto; padding: 1rem; line-height: 1.7; }
+    h1 { color: #059669; }
+    h2 { color: #047857; border-bottom: 2px solid #d1fae5; padding-bottom: 0.3rem; }
+    .demo-box { background: #f0fdf4; border: 1px solid #a7f3d0; padding: 1rem; margin: 0.5rem 0; border-radius: 6px; }
+    .highlight { background: #fef3c7; padding: 0.15em 0.4em; border-radius: 3px; }
+    code { background: #e5e7eb; padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    [data-type="warning"] { color: #d97706; font-weight: bold; }
+    [data-type="info"] { color: #2563eb; }
+    [contenteditable="true"] { border: 2px dashed #06b6d4; padding: 0.5rem; outline: none; }
+    [contenteditable="true"]:focus { border-color: #0891b2; background: #ecfeff; }
+    .tab-order:focus { outline: 3px solid #059669; background: #d1fae5; }
+  </style>
+</head>
+<body>
+  <h1>HTML 元素属性详解</h1>
+
+  <h2>id 与 class</h2>
+  <div class="demo-box">
+    <p id="unique-id"><strong>id:</strong> 唯一标识符，每个页面中只能出现一次。</p>
+    <p class="shared-class"><strong>class:</strong> 样式类名，多个元素可以共享同一个 class。</p>
+    <p class="shared-class">这个段落和上面段落共用 <span class="highlight">shared-class</span> 类。</p>
+  </div>
+
+  <h2>title 属性（悬停提示）</h2>
+  <div class="demo-box">
+    <p title="这是 title 属性提供的提示文字">把鼠标悬停在这段文字上，你会看到提示工具。</p>
+    <abbr title="HyperText Markup Language">HTML</abbr> 也使用 title 提供全称说明。
+  </div>
+
+  <h2>style 属性（行内样式）</h2>
+  <div class="demo-box">
+    <p style="color: #059669; font-size: 1.2em; font-weight: bold;">这段文字使用行内 style 属性设置了绿色大号加粗。</p>
+    <p style="background: #fef3c7; padding: 0.5rem; border-radius: 4px;">背景色也通过 style 设置。</p>
+  </div>
+
+  <h2>hidden 属性</h2>
+  <div class="demo-box">
+    <p>下面有一个被隐藏的元素（查看源码可看到）：</p>
+    <p hidden>这段文字被 hidden 属性隐藏了，浏览器不会渲染它。</p>
+    <p>上面的文字在页面中看不到，但 DOM 中存在。</p>
+  </div>
+
+  <h2>布尔属性（表单元素）</h2>
+  <div class="demo-box">
+    <p>布尔属性不需要值，写上属性名即表示 true：</p>
+    <label><input type="checkbox" checked> checked — 默认选中</label><br>
+    <label><input type="checkbox"> 未设置 checked</label><br>
+    <label>必填字段：<input type="text" required placeholder="此项必须填写"></label><br>
+    <label><input type="text" disabled placeholder="disabled — 已禁用" value="不可编辑"></label><br>
+    <label><input type="text" readonly value="readonly — 只读"></label>
+  </div>
+
+  <h2>data-* 自定义属性</h2>
+  <div class="demo-box">
+    <p data-type="warning">这条消息使用 data-type="warning" 属性标记为警告类型，CSS 通过 [data-type="warning"] 选择器为其设置了橙色加粗样式。</p>
+    <p data-type="info">这条消息使用 data-type="info" 属性标记为信息类型。</p>
+    <p>CSS 通过 <code>[data-type="warning"]</code> 和 <code>[data-type="info"]</code> 属性选择器匹配。</p>
+  </div>
+
+  <h2>contenteditable（可编辑段落）</h2>
+  <div class="demo-box">
+    <p contenteditable="true">点击这段文字就可以直接编辑它！这是一个 HTML 属性，不是 JavaScript。</p>
+    <p>试试修改上面的文字内容。</p>
+  </div>
+
+  <h2>tabindex（Tab 键导航顺序）</h2>
+  <div class="demo-box">
+    <p>按 Tab 键依次聚焦以下元素（默认按 DOM 顺序，tabindex 可以调整顺序）：</p>
+    <input class="tab-order" type="text" tabindex="3" placeholder="tabindex=3（最后聚焦）"><br><br>
+    <input class="tab-order" type="text" tabindex="1" placeholder="tabindex=1（最先聚焦）"><br><br>
+    <input class="tab-order" type="text" tabindex="2" placeholder="tabindex=2（第二聚焦）">
+  </div>
+
+  <h2>lang 与 dir 属性</h2>
+  <div class="demo-box">
+    <p lang="en">This paragraph is declared as English with lang="en".</p>
+    <p lang="ja">この段落は lang="ja" で日本語として宣言されています。</p>
+    <p dir="rtl">这段文字使用 dir="rtl" 从右向左排列。</p>
+  </div>
+</body>
+</html>
