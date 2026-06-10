@@ -49,7 +49,7 @@ export default function CodeRunner({ section, sidebarOpen, onToggleSidebar }: Co
 
   const isDraggingRef = useRef(false);
 
-  const handleDragStart = useCallback((e: React.MouseEvent) => {
+  const handleDragStart = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     e.preventDefault();
     isDraggingRef.current = true;
 
